@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/Orion-Mind/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  
+  <meta name="description" content="OrionMind - Your intelligent AI companion for daily tasks and creativity.">
+  <title>OrionMind</title>
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="OrionMind">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <meta name="theme-color" content="#000000">
+
+  <meta property="og:title" content="OrionMind - AI Chatbot">
+  <meta property="og:description" content="Chat with OrionMind, your AI assistant.">
+  <meta property="og:image" content="icons/Icon-512.png">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      background-color: #000000; /* Black background */
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif, Roboto;
+      overflow: hidden;
+    }
+    
+    /* Simple Loading Animation */
+    .loading-container {
+      text-align: center;
+      color: #ffffff; /* White text */
+      opacity: 1;
+      transition: opacity 0.4s ease-out;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #ffffff;
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto 20px auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 18px;
+      letter-spacing: 2px;
+      font-weight: normal;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading" class="loading-container">
+    <div class="spinner"></div>
+    <h1>OrionMind</h1>
+  </div>
+
+  <script src="flutter_bootstrap.js" async></script>
+  
+  <script>
+    // This is optional, usually Flutter covers the body, 
+    // but this ensures the loader fades out if you use 'flutter_bootstrap.js'
+    window.addEventListener('load', function(ev) {
+      // Flutter engine usually takes over, but having a seamless transition is nice.
+      // The div #loading will be covered by the Flutter Canvas.
+    });
+  </script>
+</body>
+</html>

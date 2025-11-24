@@ -1,0 +1,56 @@
+{
+    "name": "OrionMind - AI Chatbot",
+    "short_name": "OrionMind",
+    "description": "Your intelligent AI companion for daily tasks and creativity.",
+    "start_url": ".",
+    "scope": "/",
+    "display": "standalone",
+    "display_override": ["window-controls-overlay", "minimal-ui"],
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "orientation": "portrait",
+    "categories": ["productivity", "utilities", "artificial_intelligence"],
+    "lang": "en-US",
+    "dir": "ltr",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "screenshots/desktop-dark.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "OrionMind on Desktop"
+        },
+        {
+            "src": "screenshots/mobile-dark.png",
+            "sizes": "720x1280",
+            "type": "image/png",
+            "form_factor": "narrow",
+            "label": "Chat Interface"
+        }
+    ]
+}
