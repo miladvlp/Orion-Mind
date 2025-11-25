@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <base href="/Orion-Mind/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  
+
   <meta name="description" content="OrionMind - Your intelligent AI companion for daily tasks and creativity.">
   <title>OrionMind</title>
 
@@ -14,74 +15,201 @@
   <meta name="apple-mobile-web-app-title" content="OrionMind">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#6B46C1">
 
   <meta property="og:title" content="OrionMind - AI Chatbot">
-  <meta property="og:description" content="Chat with OrionMind, your AI assistant.">
+  <meta property="og:description" content="Chat with your AI assistant on OrionMind">
   <meta property="og:image" content="icons/Icon-512.png">
   <meta property="og:type" content="website">
 
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="manifest" href="manifest.json">
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #000000; /* Black background */
+      background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
       margin: 0;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif, Roboto;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       overflow: hidden;
     }
-    
-    /* Simple Loading Animation */
+
     .loading-container {
       text-align: center;
-      color: #ffffff; /* White text */
+      color: #ffffff;
       opacity: 1;
-      transition: opacity 0.4s ease-out;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo-container {
+      position: relative;
+      margin-bottom: 32px;
     }
 
     .spinner {
-      width: 50px;
-      height: 50px;
-      border: 3px solid rgba(255, 255, 255, 0.3);
+      width: 80px;
+      height: 80px;
+      border: 4px solid rgba(139, 92, 246, 0.2);
       border-radius: 50%;
-      border-top-color: #ffffff;
-      animation: spin 1s ease-in-out infinite;
-      margin: 0 auto 20px auto;
+      border-top-color: #8B5CF6;
+      border-right-color: #06B6D4;
+      animation: spin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      margin: 0 auto;
+      position: relative;
+      box-shadow:
+        0 0 20px rgba(139, 92, 246, 0.3),
+        inset 0 0 20px rgba(139, 92, 246, 0.1);
+    }
+
+    .spinner::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(6, 182, 212, 0.3);
+      border-radius: 50%;
+      border-bottom-color: #06B6D4;
+      animation: spin 1.8s linear infinite reverse;
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     h1 {
-      font-size: 18px;
-      letter-spacing: 2px;
-      font-weight: normal;
-      text-transform: uppercase;
-      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.8;
+      }
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #94A3B8;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .loading-dots {
+      display: inline-flex;
+      gap: 4px;
+      margin-top: 24px;
+    }
+
+    .loading-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+      animation: bounce 1.4s infinite ease-in-out;
+    }
+
+    .loading-dots span:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .loading-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loading-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      60%,
+      100% {
+        transform: translateY(0);
+      }
+
+      30% {
+        transform: translateY(-12px);
+      }
     }
   </style>
 </head>
+
 <body>
   <div id="loading" class="loading-container">
-    <div class="spinner"></div>
+    <div class="logo-container">
+      <div class="spinner"></div>
+    </div>
     <h1>OrionMind</h1>
+    <p class="subtitle">Your AI assistant hub — chat with any model using OrionMind.</p>
+    <div class="loading-dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
 
   <script src="flutter_bootstrap.js" async></script>
-  
+
   <script>
-    // This is optional, usually Flutter covers the body, 
-    // but this ensures the loader fades out if you use 'flutter_bootstrap.js'
-    window.addEventListener('load', function(ev) {
-      // Flutter engine usually takes over, but having a seamless transition is nice.
-      // The div #loading will be covered by the Flutter Canvas.
+    window.addEventListener('load', function (ev) {
+      // Flutter engine will take over and cover the loading screen
     });
   </script>
 </body>
+
 </html>
